@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="564.0" prefWidth="603.0" style="-fx-background-color: FF6978;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ChooseCurrency">
+   <children>
+      <AnchorPane layoutY="103.0" prefHeight="461.0" prefWidth="651.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <AnchorPane layoutX="139.0" layoutY="15.0" prefHeight="434.0" prefWidth="380.0" style="-fx-background-color: #EEEEEE;">
+               <children>
+                  <Label layoutX="119.0" layoutY="8.0" prefHeight="78.0" prefWidth="117.0" text="Your bill">
+                     <font>
+                        <Font name="Myanmar Text" size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="173.0" text="DML Terminal" textFill="WHITE">
+         <font>
+            <Font name="Myanmar Text Bold" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
