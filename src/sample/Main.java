@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/Admin/create_cashier.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Sample/auth.fxml"));
         primaryStage.setTitle("DMT Terminal");
         primaryStage.setScene(new Scene(root, 650, 500));
         primaryStage.show();

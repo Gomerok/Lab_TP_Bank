@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -10,12 +11,7 @@
    <children>
       <AnchorPane layoutY="103.0" prefHeight="461.0" prefWidth="651.0" style="-fx-background-color: #fafafa;">
          <children>
-            <TextField fx:id="login_field" layoutX="198.0" layoutY="65.0" prefHeight="65.0" prefWidth="255.0" promptText="Login">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="password_field" layoutX="194.0" layoutY="174.0" prefHeight="57.0" prefWidth="263.0" promptText="Password">
+            <TextField fx:id="login_field" layoutX="194.0" layoutY="90.0" prefHeight="58.0" prefWidth="263.0" promptText="Login">
                <font>
                   <Font size="27.0" />
                </font>
@@ -23,6 +19,16 @@
             <Button fx:id="SignInButton" layoutX="254.0" layoutY="305.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="143.0" style="-fx-background-color: #FF6978;" text="Sign in">
                <font>
                   <Font size="29.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="password_field" layoutX="194.0" layoutY="163.0" prefHeight="58.0" prefWidth="263.0" promptText="Password">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="SignUpButtonV" layoutX="473.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #FF6978;" text="Sign up">
+               <font>
+                  <Font size="18.0" />
                </font>
             </Button>
          </children>
