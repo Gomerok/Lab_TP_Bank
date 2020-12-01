@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="564.0" prefWidth="603.0" style="-fx-background-color: FF6978;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignInController">
    <children>
@@ -26,11 +23,6 @@
                   <Font size="27.0" />
                </font>
             </PasswordField>
-            <Button fx:id="SignUpButtonV" layoutX="473.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #FF6978;" text="Sign up">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
       <Label layoutX="166.0" text="DMT Terminal" textFill="WHITE">
