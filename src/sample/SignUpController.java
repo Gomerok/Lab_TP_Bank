@@ -38,7 +38,6 @@ public class SignUpController {
 
     @FXML
     void initialize() {
-
         DatabaseHandler dbHandler = new DatabaseHandler();
         SignUpButton.setOnAction(actionEvent -> {
           dbHandler.signUpUser(SignUpName.getText(),SignUpSurname.getText(),SignUpLogin.getText(),SignUpPassword.getText());
