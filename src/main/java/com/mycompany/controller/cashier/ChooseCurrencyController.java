@@ -2,7 +2,6 @@ package com.mycompany.controller.cashier;
 
 import com.mycompany.App;
 import com.mycompany.domain.impl.ApplicationProperties;
-import com.mycompany.domain.impl.ExchangeRates;
 import com.mycompany.domain.impl.ExchangeVolume;
 import com.mycompany.util.AlertDialog;
 import com.mycompany.util.CurrencyConverter;
@@ -11,10 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 
-import java.util.regex.Pattern;
-
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class ChooseCurrencyController {
@@ -122,7 +121,10 @@ public class ChooseCurrencyController {
                 return;
             }
 
-            if (Pattern.matches(("\\D"),inputField.getText().trim())) {
+            final String pattern =  "[\\d]+";
+            Pattern p = Pattern.compile(pattern);
+            Matcher m = p.matcher(inputField.getText().trim());
+            if (!m.find()) {
                 AlertDialog.showAlert(Alert.AlertType.ERROR, inputField.getScene().getWindow(),
                         "Form Error!", "Please Check the entered data");
                 return;
@@ -156,85 +158,69 @@ public class ChooseCurrencyController {
             }
 
 
-
             InputDataStorage.INPUT_DATA_STORAGE.setCurrencyValueFrom(currencyValueFrom);
             InputDataStorage.INPUT_DATA_STORAGE.setCurrencyValueTo(currencyValueTo);
-            InputDataStorage.INPUT_DATA_STORAGE.setSum(inputField.getText().trim());
+            InputDataStorage.INPUT_DATA_STORAGE.setExSum(Double.valueOf(inputField.getText().trim()));
             InputDataStorage.INPUT_DATA_STORAGE.setBuyOrSellOperation(operationValue);
 
-            makeExchange(currencyValueFrom, currencyValueTo, inputField.getText().trim());
+            InputDataStorage.INPUT_DATA_STORAGE.setFinalSum(makeExchange(currencyValueFrom, currencyValueTo, inputField.getText().trim()));
 
             FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getInputClientData());
             App.changeScene(actionEvent, loader);
         });
     }
 
-    private void makeExchange(String currencyValueFrom, String currencyValueTo, String sum) {
-
+    private double makeExchange(String currencyValueFrom, String currencyValueTo, String sum) {
 
         ///////// BYN
         if (currencyValueFrom.equals("BYN") && currencyValueTo.equals("USD")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromBynToUsd(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromBynToUsd(sum);
         }
 
         if (currencyValueFrom.equals("BYN") && currencyValueTo.equals("EUR")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromBynToEuro(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromBynToEuro(sum);
         }
 
         if (currencyValueFrom.equals("BYN") && currencyValueTo.equals("RUB")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromBynToRub(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromBynToRub(sum);
         }
         ///////// USD
         if (currencyValueFrom.equals("USD") && currencyValueTo.equals("BYN")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromUsdToByn(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromUsdToByn(sum);
         }
 
         if (currencyValueFrom.equals("USD") && currencyValueTo.equals("EUR")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromUsdToEuro(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromUsdToEuro(sum);
         }
 
         if (currencyValueFrom.equals("USD") && currencyValueTo.equals("RUB")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromUsdToRub(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromUsdToRub(sum);
         }
         ///////// EUR
         if (currencyValueFrom.equals("EUR") && currencyValueTo.equals("BYN")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromEuroToByn(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromEuroToByn(sum);
         }
 
         if (currencyValueFrom.equals("EUR") && currencyValueTo.equals("USD")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromEuroToUsd(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromEuroToUsd(sum);
         }
 
         if (currencyValueFrom.equals("EUR") && currencyValueTo.equals("RUB")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromEuroToRub(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromEuroToRub(sum);
         }
         ///////// RUB
         if (currencyValueFrom.equals("RUB") && currencyValueTo.equals("BYN")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromRubToByn(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromRubToByn(sum);
         }
 
         if (currencyValueFrom.equals("RUB") && currencyValueTo.equals("EUR")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromRubToEuro(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromRubToEuro(sum);
         }
 
         if (currencyValueFrom.equals("RUB") && currencyValueTo.equals("USD")) {
-            CurrencyConverter Operation = new CurrencyConverter();
-            Double TransferSum = Operation.convertFromRubToUsd(sum);
+            return CurrencyConverter.CURRENCY_CONVERTER.convertFromRubToUsd(sum);
         }
 
+        throw new RuntimeException("");
     }
 }
-
-////        ExchangeVolume.EXCHANGE_VOLUME.
-//        throw new UnsupportedOperationException();

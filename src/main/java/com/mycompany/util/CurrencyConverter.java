@@ -1,13 +1,11 @@
 package com.mycompany.util;
 
 import com.mycompany.domain.impl.ExchangeRates;
-import com.mycompany.domain.impl.ExchangeVolume;
-import javafx.scene.control.Alert;
 
 public class CurrencyConverter {
     public static final CurrencyConverter CURRENCY_CONVERTER = new CurrencyConverter();
 
-    public CurrencyConverter() {
+    private CurrencyConverter() {
     }
 
 //    private static double BYN_BUY_VOLUME= 0.0;
@@ -23,8 +21,8 @@ public class CurrencyConverter {
     // Bel
     public Double convertFromBynToUsd(String sum) {
         BYN_SELL_VOLUME += Double.valueOf(sum);
-        Double TransferSum = Double.valueOf(sum) / ExchangeRates.getInstance().getUsdBuy();
-        return TransferSum;
+        Double transferSum = Double.valueOf(sum) / ExchangeRates.getInstance().getUsdBuy();
+        return transferSum;
     }
 
     public Double convertFromBynToEuro(String sum) {
@@ -103,5 +101,3 @@ public class CurrencyConverter {
     }
 
 }
-//        switch ()
-//        throw new UnsupportedOperationException();

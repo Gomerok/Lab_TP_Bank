@@ -42,6 +42,7 @@ public class PropertyReader {
         ApplicationProperties.APPLICATION_PROPERTIES.setViewMobileOperationHistory(properties.getProperty("view_mobile_operation_history"));
 
         ApplicationProperties.APPLICATION_PROPERTIES.setBill(properties.getProperty("bill"));
+        ApplicationProperties.APPLICATION_PROPERTIES.setExchangeBill(properties.getProperty("exchange_bill"));
         ApplicationProperties.APPLICATION_PROPERTIES.setCashierMenu(properties.getProperty("cashier_menu"));
         ApplicationProperties.APPLICATION_PROPERTIES.setChooseCurrency(properties.getProperty("choose_currency"));
         ApplicationProperties.APPLICATION_PROPERTIES.setInputClientData(properties.getProperty("input_client_data"));

@@ -78,13 +78,16 @@ public class InputCientsDataController {
                 abstractDAO.create(OperationFactory.OPERATION_FACTORY.create(clientNameField.getText().trim() + " " +
                         clientSurnameField.getText().trim(), InputDataStorage.INPUT_DATA_STORAGE.getBuyOrSellOperation(),
                         InputDataStorage.INPUT_DATA_STORAGE.getCurrencyValueFrom(), InputDataStorage.INPUT_DATA_STORAGE.getCurrencyValueTo(),
-                        Double.parseDouble(InputDataStorage.INPUT_DATA_STORAGE.getSum()), LocalDateTime.now()));
+                        InputDataStorage.INPUT_DATA_STORAGE.getExSum(), LocalDateTime.now()));
+
+                InputDataStorage.INPUT_DATA_STORAGE.setName(clientNameField.getText().trim());
+                InputDataStorage.INPUT_DATA_STORAGE.setSurname(clientSurnameField.getText().trim());
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
 
-            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getCashierMenu());
+            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getExchangeBill());
             App.changeScene(actionEvent, loader);
         });
     }
