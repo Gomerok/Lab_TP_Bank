@@ -16,6 +16,8 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CreateCashierController {
 
@@ -66,6 +68,12 @@ public class CreateCashierController {
                 return;
             }
 
+            if (!validate()) {
+                AlertDialog.showAlert(Alert.AlertType.ERROR, registerButton.getScene().getWindow(),
+                        "Form Error!", "Please enter correct information");
+                return;
+            }
+
             boolean isAlreadyLoggedLogged = IsLoggedChecker.isLogged(login, password);
             if (isAlreadyLoggedLogged) {
                 AlertDialog.showAlert(Alert.AlertType.ERROR, registerButton.getScene().getWindow(),
@@ -87,6 +95,9 @@ public class CreateCashierController {
         String login = loginField.getText().trim();
         String password = passwordField.getText().trim();
 
+
+
+
         AbstractDAO abstractDAO = null;
         try {
             abstractDAO = new CashierDAO();
@@ -102,5 +113,37 @@ public class CreateCashierController {
             FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getCrudCashier());
             App.changeScene(actionEvent, loader);
         });
+    }
+
+    private boolean validate() {
+        Pattern p;
+        Matcher m;
+
+        final String namePattern = "^[a-zA-Z_\\s]+$";
+        p = Pattern.compile(namePattern);
+        m = p.matcher(nameField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+        m = p.matcher(surnameField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        final String telephonePattern = "^\\+[\\d]{12}$";
+        p = Pattern.compile(telephonePattern);
+        m = p.matcher(mobilePhoneField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        final String loginPattern = "^[\\d_A-Za-z\\.-]{1,20}$";
+        p = Pattern.compile(loginPattern);
+        m = p.matcher(loginField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -61,7 +61,7 @@ public class AdminMenuController {
     @FXML
     private void onViewOperationHistoryClick() {
         viewOperationHistoryButton.setOnAction(actionEvent -> {
-            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getViewOperationHistory());
+            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getViewOperations());
             App.changeScene(actionEvent, loader);
         });
     }

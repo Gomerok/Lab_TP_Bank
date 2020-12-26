@@ -1,2 +1,11 @@
+com\mycompany\controller\cashier\NextStepToPayMobPhoneController.class
+com\mycompany\factory\impl\MobileOperationFactory.class
+com\mycompany\controller\admin\ViewMobileOperationHistoryController.class
+com\mycompany\domain\impl\MobileOperations.class
 com\mycompany\App.class
+com\mycompany\domain\impl\MobilePhoneData.class
+com\mycompany\controller\cashier\PayForMobPhoneController.class
+com\mycompany\controller\admin\ViewOperationController.class
 module-info.class
+com\mycompany\controller\cashier\BillController.class
+com\mycompany\dao\impl\MobileOperationsDAO.class

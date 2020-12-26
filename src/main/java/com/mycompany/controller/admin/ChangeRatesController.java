@@ -12,6 +12,8 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ChangeRatesController {
 
@@ -99,6 +101,12 @@ public class ChangeRatesController {
                 return;
             }
 
+            if (!validate()) {
+                AlertDialog.showAlert(Alert.AlertType.ERROR, newRateField.getScene().getWindow(),
+                        "Form Error!", "Please enter correct limit");
+                return;
+            }
+
             RadioButton selectedCurrency = (RadioButton) currency.getSelectedToggle();
             String currencyValue = selectedCurrency.getText();
 
@@ -171,4 +179,19 @@ public class ChangeRatesController {
             App.changeScene(actionEvent, loader);
         });
     }
+
+    private boolean validate() {
+        Pattern p;
+        Matcher m;
+
+        final String idPattern = "\\d*";
+        p = Pattern.compile(idPattern);
+        m = p.matcher(newRateField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        return true;
+    }
 }
+

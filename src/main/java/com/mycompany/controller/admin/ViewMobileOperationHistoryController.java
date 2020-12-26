@@ -2,7 +2,7 @@ package com.mycompany.controller.admin;
 
 import com.mycompany.App;
 import com.mycompany.dao.AbstractDAO;
-import com.mycompany.dao.impl.CashierDAO;
+import com.mycompany.dao.impl.MobileOperationsDAO;
 import com.mycompany.domain.Entity;
 import com.mycompany.domain.impl.ApplicationProperties;
 import javafx.collections.FXCollections;
@@ -18,8 +18,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ReadCashiersController {
-
+public class ViewMobileOperationHistoryController {
     @FXML
     private ResourceBundle resources;
 
@@ -30,13 +29,13 @@ public class ReadCashiersController {
     private Button backButton;
 
     @FXML
-    private TableView<Entity> userTable;
+    private TableView<Entity> mobileOperationHistoryTable;
 
     @FXML
     private TableColumn<Entity, Integer> idCol;
 
     @FXML
-    private TableColumn<Entity, String> mobPhoneCol;
+    private TableColumn<Entity, String> mobile_phoneCol;
 
     @FXML
     private TableColumn<Entity, String> nameCol;
@@ -45,25 +44,23 @@ public class ReadCashiersController {
     private TableColumn<Entity, String> surnameCol;
 
     @FXML
-    private TableColumn<Entity, String> loginCol;
+    private TableColumn<Entity, String> sumCol;
+
 
     @FXML
     void initialize() {
         try {
-            AbstractDAO abstractDAO = new CashierDAO();
+            AbstractDAO abstractDAO = new MobileOperationsDAO();
 
             ObservableList<Entity> entities = FXCollections.observableArrayList(abstractDAO.getAll());
 
-//            System.out.println("*****************");
-//            entities.forEach(System.out::println);
+            idCol.setCellValueFactory(new PropertyValueFactory<>("mobileOperationId"));
+            mobile_phoneCol.setCellValueFactory(new PropertyValueFactory<>("mobilePhone"));
+            nameCol.setCellValueFactory(new PropertyValueFactory<>("clientName"));
+            surnameCol.setCellValueFactory(new PropertyValueFactory<>("clientSurname"));
+            sumCol.setCellValueFactory(new PropertyValueFactory<>("Sum"));
 
-            idCol.setCellValueFactory(new PropertyValueFactory<>("cashierId"));
-            nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-            surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
-            mobPhoneCol.setCellValueFactory(new PropertyValueFactory<>("mobilePhone"));
-            loginCol.setCellValueFactory(new PropertyValueFactory<>("login"));
-
-            userTable.setItems(entities);
+            mobileOperationHistoryTable.setItems(entities);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -73,9 +70,8 @@ public class ReadCashiersController {
     @FXML
     private void onBackButtonClick() {
         backButton.setOnAction(actionEvent -> {
-            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getCrudCashier());
+            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getViewOperations());
             App.changeScene(actionEvent, loader);
         });
     }
-
 }

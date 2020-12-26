@@ -13,6 +13,8 @@ import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LimitExchangeVolumeController {
 
@@ -137,6 +139,11 @@ public class LimitExchangeVolumeController {
                 return;
             }
 
+            if (!validate()) {
+                AlertDialog.showAlert(Alert.AlertType.ERROR, newLimitField.getScene().getWindow(),
+                        "Form Error!", "Please enter correct limit");
+                return;
+            }
 
             RadioButton selectedCurrency = (RadioButton) currency.getSelectedToggle();
             String currencyValue = selectedCurrency.getText();
@@ -198,5 +205,19 @@ public class LimitExchangeVolumeController {
             FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getAdminMenu());
             App.changeScene(actionEvent, loader);
         });
+    }
+
+    private boolean validate() {
+        Pattern p;
+        Matcher m;
+
+        final String idPattern = "\\d*";
+        p = Pattern.compile(idPattern);
+        m = p.matcher(newLimitField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        return true;
     }
 }

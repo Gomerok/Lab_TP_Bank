@@ -100,7 +100,7 @@ public class ViewOperationHistoryController {
 //            Parent root = loader.getRoot();
 //            stage.setScene(new Scene(root));
 //            stage.show();
-            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getAdminMenu());
+            FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getViewOperations());
             App.changeScene(actionEvent, loader);
         });
     }

@@ -38,6 +38,8 @@ public class PropertyReader {
         ApplicationProperties.APPLICATION_PROPERTIES.setReadCashiers(properties.getProperty("read_cashier"));
         ApplicationProperties.APPLICATION_PROPERTIES.setUpdateCashier(properties.getProperty("update_cashier"));
         ApplicationProperties.APPLICATION_PROPERTIES.setViewOperationHistory(properties.getProperty("view_operation_history"));
+        ApplicationProperties.APPLICATION_PROPERTIES.setViewOperations(properties.getProperty("view_operations"));
+        ApplicationProperties.APPLICATION_PROPERTIES.setViewMobileOperationHistory(properties.getProperty("view_mobile_operation_history"));
 
         ApplicationProperties.APPLICATION_PROPERTIES.setBill(properties.getProperty("bill"));
         ApplicationProperties.APPLICATION_PROPERTIES.setCashierMenu(properties.getProperty("cashier_menu"));

@@ -16,6 +16,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UpdateCashierController {
 
@@ -54,6 +56,13 @@ public class UpdateCashierController {
             try {
                 AbstractDAO abstractDAO = new CashierDAO();
                 // validate empty string case
+
+                if (!validate()) {
+                    AlertDialog.showAlert(Alert.AlertType.ERROR, updateButton.getScene().getWindow(),
+                            "Form Error!", "Please enter correct info");
+                    return;
+                }
+
                 Long id = Long.parseLong(userIdField.getText().trim());
 
                 if (id.equals(null) || id <= 0) {
@@ -123,5 +132,33 @@ public class UpdateCashierController {
             FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getCrudCashier());
             App.changeScene(actionEvent, loader);
         });
+    }
+
+    private boolean validate() {
+        Pattern p;
+        Matcher m;
+
+        final String idPattern = "^\\d+$";
+        p = Pattern.compile(idPattern);
+        m = p.matcher(userIdField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        final String telephonePattern = "^\\+[\\d]{12}$";
+        p = Pattern.compile(telephonePattern);
+        m = p.matcher(mobPhoneField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        final String loginPattern = "^[\\d_A-Za-z\\.-]{1,20}$";
+        p = Pattern.compile(loginPattern);
+        m = p.matcher(loginField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        return true;
     }
 }

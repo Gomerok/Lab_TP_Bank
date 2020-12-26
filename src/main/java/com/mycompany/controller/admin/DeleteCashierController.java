@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DeleteCashierController {
 
@@ -42,6 +44,13 @@ public class DeleteCashierController {
         deleteButton.setOnAction(actionEvent -> {
             try {
                 AbstractDAO abstractDAO = new CashierDAO();
+
+                if (!validate()) {
+                    AlertDialog.showAlert(Alert.AlertType.ERROR, deleteButton.getScene().getWindow(),
+                            "Form Error!", "Please enter correrct id");
+                    return;
+                }
+
                 Long id = Long.parseLong(userIdField.getText().trim());
 
                 if (id.equals(null)) {
@@ -49,7 +58,6 @@ public class DeleteCashierController {
                             "Form Error!", "Please enter id");
                     return;
                 }
-
 
                 abstractDAO.delete(id);
 
@@ -67,5 +75,19 @@ public class DeleteCashierController {
             FXMLLoader loader = App.loadFXML(ApplicationProperties.APPLICATION_PROPERTIES.getCrudCashier());
             App.changeScene(actionEvent, loader);
         });
+    }
+
+    private boolean validate() {
+        Pattern p;
+        Matcher m;
+
+        final String idPattern = "\\d*";
+        p = Pattern.compile(idPattern);
+        m = p.matcher(userIdField.getText().trim());
+        if (!m.matches()) {
+            return false;
+        }
+
+        return true;
     }
 }
