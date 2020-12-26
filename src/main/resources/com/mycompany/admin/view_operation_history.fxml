@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="736.0" style="-fx-background-color: FF6978;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.controller.admin.ViewOperationHistoryController">
+   <children>
+      <AnchorPane layoutX="-8.0" layoutY="73.0" prefHeight="326.0" prefWidth="743.0" style="-fx-background-color: B1EDE8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0">
+         <children>
+            <Button fx:id="backButton" layoutX="585.0" layoutY="266.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="14.0" prefWidth="107.0" style="-fx-background-color: #738D91;" text="back" textFill="#fffcf9">
+               <font>
+                  <Font name="Myanmar Text" size="15.0" />
+               </font>
+            </Button>
+            <Text fill="#352d39" layoutX="252.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View operation history">
+               <font>
+                  <Font name="Tw Cen MT" size="24.0" />
+               </font>
+            </Text>
+            <TableView fx:id="operationHistoryTable" layoutX="42.0" layoutY="53.0" prefHeight="200.0" prefWidth="654.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="53.0">
+              <columns>
+                  <TableColumn fx:id="idCol" minWidth="30.0" prefWidth="30.0" text="Id" />
+                <TableColumn fx:id="cashierCol" minWidth="150.0" prefWidth="75.0" text="Cashier" />
+                <TableColumn fx:id="clientCol" minWidth="150.0" prefWidth="75.0" text="Client" />
+                  <TableColumn fx:id="buyOrSellCol" prefWidth="75.0" text="Buy/Sell " />
+                  <TableColumn fx:id="fromCol" prefWidth="50.0" text="From" />
+                  <TableColumn fx:id="toCol" prefWidth="50.0" text="To" />
+                  <TableColumn fx:id="sumCol" prefWidth="75.0" text="Sum" />
+                  <TableColumn fx:id="dateCol" prefWidth="75.0" text="Date" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Text fill="#fffcf9" layoutX="284.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DMT Bank">
+         <font>
+            <Font name="Tw Cen MT" size="36.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

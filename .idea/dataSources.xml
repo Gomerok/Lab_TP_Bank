@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Terminal" uuid="dc8f722e-b893-443e-b532-b7341ca625d9">
+    <data-source source="LOCAL" name="bank_terminal" uuid="48d47a75-deff-48cf-b465-89582b4570d6">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1:3306</jdbc-url>
-      <driver-properties>
-        <property name="serverTimezone" value="UTC" />
-      </driver-properties>
+      <jdbc-url>jdbc:mysql://localhost:3306/bank_terminal?serverTimezone=UTC</jdbc-url>
     </data-source>
   </component>
 </project>

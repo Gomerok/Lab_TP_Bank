@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FF6978;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.controller.admin.ChangeRatesController">
+   <children>
+      <AnchorPane layoutX="-8.0" layoutY="73.0" prefHeight="326.0" prefWidth="607.0" style="-fx-background-color: B1EDE8;">
+         <children>
+            <Button fx:id="backButton" layoutX="466.0" layoutY="264.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="14.0" prefWidth="107.0" style="-fx-background-color: #738D91;" text="back" textFill="#fffcf9">
+               <font>
+                  <Font name="Myanmar Text" size="15.0" />
+               </font>
+            </Button>
+            <Text fill="#352d39" layoutX="234.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change rates">
+               <font>
+                  <Font name="Tw Cen MT" size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="applyButton" layoutX="25.0" layoutY="230.0" mnemonicParsing="false" onAction="#onApplyButtonClick" prefHeight="42.0" prefWidth="191.0" style="-fx-background-color: #738D91;" text="Apply" textFill="#fffcf9">
+               <font>
+                  <Font name="Myanmar Text" size="15.0" />
+               </font>
+            </Button>
+            <TextField fx:id="usdBuyField" layoutX="455.0" layoutY="79.0" prefHeight="26.0" prefWidth="60.0" />
+            <TextField fx:id="eurBuyField" layoutX="455.0" layoutY="105.0" prefHeight="26.0" prefWidth="60.0" />
+            <TextField fx:id="rubBuyField" layoutX="455.0" layoutY="131.0" prefHeight="26.0" prefWidth="60.0" />
+            <TextField fx:id="rubSellField" layoutX="515.0" layoutY="131.0" prefHeight="26.0" prefWidth="60.0" />
+            <TextField fx:id="eurSellField" layoutX="515.0" layoutY="105.0" prefHeight="26.0" prefWidth="60.0" />
+            <TextField fx:id="usdSellField" layoutX="515.0" layoutY="79.0" prefHeight="26.0" prefWidth="60.0" />
+            <Text layoutX="504.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text layoutX="423.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USD" />
+            <Text layoutX="468.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="423.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RUB" />
+            <Text layoutX="423.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EUR" />
+            <Text layoutX="474.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="buy" />
+            <Text layoutX="527.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sale" />
+            <Text layoutX="27.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chosen currency :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <RadioButton fx:id="usdRadioButton" layoutX="27.0" layoutY="71.0" mnemonicParsing="false" selected="true" text="USD">
+               <toggleGroup>
+                  <ToggleGroup fx:id="currency" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="eurRadioButton" layoutX="87.0" layoutY="71.0" mnemonicParsing="false" text="EUR" toggleGroup="$currency" />
+            <RadioButton fx:id="rubRadioButton" layoutX="145.0" layoutY="70.0" mnemonicParsing="false" text="RUB" toggleGroup="$currency" />
+            <Text layoutX="27.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select an operation :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <RadioButton fx:id="sellRadioButton" layoutX="130.0" layoutY="136.0" mnemonicParsing="false" text="Sell">
+               <toggleGroup>
+                  <ToggleGroup fx:id="operation" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="buyRadioButton" layoutX="27.0" layoutY="136.0" mnemonicParsing="false" selected="true" text="Buy" toggleGroup="$operation" />
+            <TextField fx:id="newRateField" layoutX="132.0" layoutY="171.0" prefHeight="26.0" prefWidth="82.0" />
+            <Text layoutX="27.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New rate">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="loadButton" layoutX="432.0" layoutY="174.0" mnemonicParsing="false" onAction="#onLoadButtonClick" prefHeight="47.0" prefWidth="141.0" style="-fx-background-color: #738D91;" text="load from Internet" textFill="#fffcf9">
+               <font>
+                  <Font name="Myanmar Text" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Text fill="#fffcf9" layoutX="207.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DMT Terminal">
+         <font>
+            <Font name="Tw Cen MT" size="36.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

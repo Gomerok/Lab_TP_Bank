@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="564.0" prefWidth="603.0" style="-fx-background-color: FF6978;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.controller.cashier.ChooseCurrencyController">
+   <children>
+      <AnchorPane layoutY="103.0" prefHeight="461.0" prefWidth="651.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <AnchorPane layoutX="137.0" layoutY="181.0" prefHeight="95.0" prefWidth="370.0" style="-fx-background-color: #fafafa;">
+               <children>
+                  <Label layoutX="118.0" layoutY="21.0" />
+                  <Label layoutX="-18.0" layoutY="16.0" text="Choose currency toWhichCurrency exchange">
+                     <font>
+                        <Font name="Tw Cen MT" size="24.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="usdRadioButton2" layoutX="45.0" layoutY="68.0" mnemonicParsing="false" selected="true" text="USD">
+                     <font>
+                        <Font name="Myanmar Text" size="12.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="currencyToExchange" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="eurRadioButton2" layoutX="118.0" layoutY="74.0" mnemonicParsing="false" text="EUR" toggleGroup="$currencyToExchange" />
+                  <RadioButton fx:id="bynRadioButton2" layoutX="185.0" layoutY="74.0" mnemonicParsing="false" text="BYN" toggleGroup="$currencyToExchange" />
+                  <RadioButton fx:id="rubRadioButton2" layoutX="271.0" layoutY="74.0" mnemonicParsing="false" text="RUB" toggleGroup="$currencyToExchange" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="88.0" layoutY="80.0" prefHeight="115.0" prefWidth="370.0" style="-fx-background-color: #fafafa;">
+               <children>
+                  <Label layoutX="118.0" layoutY="21.0" />
+                  <Label layoutY="23.0" text="Choose currency toWhichCurrency be exchanged">
+                     <font>
+                        <Font name="Tw Cen MT" size="25.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="usdRadioButton" layoutX="76.0" layoutY="70.0" mnemonicParsing="false" selected="true" text="USD">
+                     <font>
+                        <Font name="Myanmar Text" size="12.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="currencyToBeExchanged" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="eurRadioButton" layoutX="173.0" layoutY="76.0" mnemonicParsing="false" text="EUR" toggleGroup="$currencyToBeExchanged" />
+                  <RadioButton fx:id="rubRadioButton" layoutX="334.0" layoutY="77.0" mnemonicParsing="false" text="RUB" toggleGroup="$currencyToBeExchanged" />
+                  <RadioButton fx:id="bynRadioButton" layoutX="257.0" layoutY="77.0" mnemonicParsing="false" text="BYN" toggleGroup="$currencyToBeExchanged" />
+               </children>
+            </AnchorPane>
+            <TextField fx:id="inputField" layoutX="177.0" layoutY="301.0" promptText="input your sum">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </TextField>
+            <Button fx:id="submitButton" layoutX="204.0" layoutY="383.0" mnemonicParsing="false" onAction="#onSubmitButtonClick" prefHeight="50.0" prefWidth="219.0" style="-fx-background-color: #FF6978;" text="Submit">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" layoutX="6.0" layoutY="380.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="65.0" prefWidth="141.0" style="-fx-background-color: #EEEEEE;" text="Back">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="167.0" text="DML Terminal" textFill="WHITE">
+         <font>
+            <Font name="Myanmar Text Bold" size="48.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="160.0" layoutY="108.0" prefHeight="97.0" prefWidth="370.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <Label layoutX="118.0" layoutY="21.0" />
+            <Label layoutX="43.0" layoutY="16.0" text="Choose buy or sell">
+               <font>
+                  <Font name="Tw Cen MT" size="25.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="buyRadioButton1" layoutX="76.0" layoutY="55.0" mnemonicParsing="false" selected="true" text="Buy">
+               <font>
+                  <Font name="Myanmar Text" size="12.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="operation" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="sellRadioButton1" layoutX="173.0" layoutY="61.0" mnemonicParsing="false" text="Sell" toggleGroup="$operation" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
